@@ -1,0 +1,129 @@
+body {
+  font-family: monospace;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  text-align: center;
+}
+
+.header p {
+  margin: auto;
+  margin-bottom: 1em;
+  max-width: 45em;
+  text-align: justify;
+}
+
+.wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0.5em;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 1em 0 1em;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.end {
+  justify-content: end;
+  margin: 0;
+}
+
+.umargin u {
+  margin: 0.8em auto;
+}
+
+.example {
+  margin: 0.5em 0;
+  color: #888;
+  background-color: #f5f5f5;
+}
+
+.boutonTexte {
+  margin: 0.5em;
+  margin-left: 19em;
+}
+
+.boutonEnvoi {
+  margin: 1em;
+  padding: 0.2em 2.5em 0.4em 0.5em;
+  width: fit-content;
+  font-size: 1.15em;
+  color: white;
+  background-color: #3e8e41;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 10px #3b533b;
+}
+
+.boutonEnvoi:hover {
+  box-shadow: 0 9px #466346;
+  transform: translateY(1px);
+}
+
+.boutonEnvoi:active {
+  box-shadow: 0 4px #666;
+  transform: translateY(8px);
+}
+
+.large {
+  font-size: 1.15em;
+  margin-top: 0.8em;
+  margin-bottom: 0.3em;
+}
+
+.small {
+  font-size: 0.85em;
+}
+
+label {
+  margin: 0.5em;
+}
+
+textarea {
+  margin-top: 1.5em;
+  color: grey;
+}
+
+#console {
+  background-color: #333;
+  color: white;
+  text-align: justify;
+  max-width: 35em;
+  padding: 0.5em 4em 1em 2em;
+  margin: 2em auto 0 auto;
+}
+
+.hide {
+  display: none;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin-top: 2.5em;
+  color: gray;
+}
+
+footer span {
+  margin: 0.25em;
+}
+
+footer a {
+  color: gray;
+}

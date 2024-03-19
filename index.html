@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="style.css">
+    <title>MiniPlay Sokoban Converter</title>
+  </head>
+  <body>
+    <div class="header">
+      <h1>MiniPlay Sokoban Converter</h1>
+      <p>Pour proposer un maximum de niveaux avec la m&eacute;moire limit&eacute;e du atmega328p,
+        MiniPlay Sokoban utilise son propre format d'entr&eacute;e.
+        Cet outil permet la conversion de niveaux &agrave; partir du format xsb.
+      </p>
+      <p>Plusieurs niveaux peuvent &ecirc;tre convertis en m&ecirc;me temps
+        &agrave; condition d'ajouter un d&eacute;limiteur entre eux.
+      </p>
+    </div>
+    
+    <!-- Colonne principale -->
+    <div class="column">
+      <!-- Format d'entree-->
+      <div class="row large">
+        <b>Format d'entr&eacute;e</b>
+      </div>
+      <div class="wrap">
+      
+      <!-- Memo -->
+        <div class="column umargin">
+          <u><b>&nbsp; Caract&egrave;res &nbsp;</b></u>
+          <table class="small">
+            <tr><td>' '</td><td>Sol (espace)</td></tr>
+            <tr><td>&nbsp;#</td><td>Mur</td></tr>
+            <tr><td>&nbsp;@</td><td>Gardien</td></tr>
+            <tr><td>&nbsp;$</td><td>Caisse</td></tr>
+            <tr><td>&nbsp;.</td><td>Emplacement</td></tr>
+            <tr><td>&nbsp;+</td><td>Gardien sur Emplacement</td></tr>
+            <tr><td>&nbsp;*</td><td>Caisse sur Emplacement</td></tr>
+          </table>
+        </div>
+        
+        <!-- delimiters -->
+        <div class="column umargin">
+          <u><b>&nbsp; D&eacute;limiteurs &nbsp;</b></u>
+          <table class ="small">
+            <tr><td colspan="2">Fin de ligne</td></tr>
+            <tr><td></td><td><i>&bull; Retour &agrave; la ligne</i></td></tr>
+            <tr><td></td><td><i>&bull; Barre verticale |</i></td></tr>
+            <tr><td colspan="2">D&eacute;limiteur de puzzle</td></tr>
+            <tr><td></td><td><i>&bull; Saut de ligne</i></td></tr>
+            <tr><td></td><td><i>&bull; Virgule ,</i></td></tr>
+            <tr><td></td><td><i>&bull; Entre guillemets ""</i></td></tr>
+          </table>
+        </div>
+        <!-- examples -->
+        <div class="column umargin">
+          <u><b>&nbsp; Exemples &nbsp;</b></u>
+          <div class="small">
+            Retour et saut de ligne
+            <div class="example">
+              &nbsp;####
+              <br>##  .#
+              <br># $$ #
+              <br># @.##
+              <br>#####
+              <br>
+              <br>...
+            </div>
+            Barre verticale et virgule
+            <div class="example">
+               ####|##  .#|# $$ #|# @.##|#####,...
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+      <!-- Champ texte d'entree -->
+      <div class="row">
+        <textarea id="entree" name="entree" rows="13" cols="40"></textarea>
+      </div>
+      <div class="row">
+        <button class="boutonTexte" onclick="deleteEntree()">Effacer</button>
+      </div>
+      
+      <!-- Format de sortie-->
+      <div class="wrap">
+      <div class="column">
+        <div class="large">
+          <b>Format de sortie</b>
+        </div>
+        <div class="row">
+          <input type="radio" id="ascii" name="formatSortie" value="0" checked="checked">
+          <label for="ascii">Cha&icirc;ne de caract&egrave;res &agrave;<br>saisir sur le Minitel</label>
+        </div>
+        <div class="row">
+          <input type="radio" id="array" name="formatSortie" value="1">
+          <label for="array">Tableau d'octets &nbsp;<i>0x00</i><br>pour le code source</label>
+        </div>
+      </div>
+      </div>
+      
+      <!-- Bouton Envoi -->
+      <div class="row">
+        <button class="boutonEnvoi" onclick="convertText()">Envoi</button>
+      </div>
+      
+      <!-- Champ texte en sortie -->
+      <div class="column">
+        <div class="row">
+          <textarea id="sortie" name="sortie" rows="13" cols="40" readonly></textarea>
+        </div>
+        <div class="row">
+          <button class="boutonTexte" onclick="copySortie()">Copier</button>
+        </div>
+      </div>
+      <div id="console" class="column hide">
+        <p>Puzzles converted : <span id="npuzzles"></span>
+          <br>Input string size : <span id="inSize"></span>
+          <br>Output table size : <span id="outSize"></span>
+          <br>> Reduced size by : <span id="gain"></span>
+        </p>
+      </div>
+    </div> <!-- Fin de la colonne principale -->
+    <footer>
+      <span>&spades; &clubs; &hearts; &diams;</span>
+      <span>This is part of <a href="https://github.com/iodeo/Minitel-Play">Minitel-Play</a> project</span>
+      <span>&copy; iodeo.fr 2023-2024</span>
+    </footer>
+  </body>
+  <script src="script.js"></script>
+</html>
